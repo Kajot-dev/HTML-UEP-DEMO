@@ -1,0 +1,205 @@
+:root {
+    --uep-color: #054d29;
+    --shadow-color: #00000060;
+    --shadow-darker: #000000a2;
+    --text-on-uep-bg: #ffffff;
+    --semi-white: #ffffff4f;
+    --text-normal: #000000;
+    --font-size: 22px;
+    --font-family: "Roboto Light";
+    --font-family-2: "Roboto Condensed";
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    top: 10vh;
+    margin: 0;
+    font-family: var(--font-family);
+    scroll-behavior: smooth;
+    font-size: var(--font-size);
+}
+a {
+    color: var(--uep-color);
+}
+a:hover {
+    cursor: pointer;
+}
+header {
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 0;
+    font-size: 1.1em;
+    background-color: var(--uep-color);
+    height: 10vh; 
+    width: 100%;
+    box-shadow: 0px 3px 8px 2px var(--shadow-color);
+    color: var(--text-on-uep-bg);
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 9999;
+}
+header a {
+    font-family: var(--font-family-2);
+    letter-spacing: 0.05em;
+    color: var(--text-on-uep-bg);
+    text-decoration: none;
+    text-shadow: 0px 0px 5px transparent;
+    transition: text-shadow 0.5s ease;
+}
+header a:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 5px var(--shadow-color);
+}
+header div.vertical-center {
+    display: inline-flex;
+    width: fit-content;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+}
+header div.vertical-center.mainLogo {
+    width: 150px;
+}
+header div.vertical-center.clickable {
+    transition: background-color 0.5s ease;
+}
+header div.vertical-center.clickable:hover {
+    background-color: var(--semi-white);
+}
+div.side-padding {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+header div.vertical-center img {
+    width: 100%;
+    height: auto;
+}
+#content {
+    display: block;
+    position: relative;
+}
+section h1 {
+    font-family: var(--font-family-2);
+    font-size: 2.1em;
+    padding-bottom: 0.1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    margin-block-start: 0;
+    margin-block-end: 0.6em;
+    border-bottom: 5px solid currentColor;
+}
+.container {
+    padding: 15px 15vw 15px 15vw;
+}
+.container-wide {
+    padding: 15px 7vw 15px 5vw;
+}
+section {
+    letter-spacing: 0.02em;
+    display: block;
+    position: relative;
+}
+::selection {
+    background-color: #00000036;
+}
+section.long {
+    padding-block-start: 50px;
+    padding-block-end: 50px;
+}
+section.diff {
+    color: var(--text-on-uep-bg);
+}
+section.bg-main {
+    background-image: url("../assets/zdjecie_main.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section.inverted {
+    background-color: var(--uep-color);
+    color: var(--text-on-uep-bg);
+}
+
+section table {
+    border: 2px solid currentColor;
+    border-collapse: collapse;
+    color: inherit;
+    font-size: inherit;
+    width: 100%;
+}
+section table th {
+    border: 2px solid currentColor;
+    border-collapse: collapse;
+}
+section table td {
+    border: 2px solid currentColor;
+    border-collapse: collapse;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+}
+hr.uep {
+    width: auto;
+    height: 5px;
+    background-color: var(--uep-color);
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+div.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.justify {
+    text-align: justify;
+}
+.shadow-inset {
+    box-shadow: inset 2px 2px 10px 2px var(--shadow-darker);
+}
+.box-shadow {
+    box-shadow: 2px 2px 7px var(--shadow-color);
+}
+.center {
+    text-align: center;
+}
+#googleStreetMap {
+    border: 4px solid var(--uep-color);
+} 
+div.fit {
+    width: fit-content;
+}
+figure figcaption {
+    text-align: center;
+    font-size: 0.5em;
+}
+table caption {
+    font-size: 0.5em;
+}
+div.margin-end {
+    margin-block-end: 25px;
+}
+.right {
+    position: absolute;
+    right: 15px;
+}
+.grid {
+    display: grid;
+}
+.full-h {
+    height: 90vh;
+}
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.enormous {
+    font-size: 7em;
+}

@@ -1,0 +1,330 @@
+/* AUDIO CONTAINER */
+/*
+ * NOTKA
+ * TEN CSS POCHODZI Z INNEGO PROJEKTU (1-1.5 miesiąca temu)
+ * PROJEKT JEST W SPECYFICZNYM ŚRODOWISKU
+ * STĄD DOŚĆ SPECYFICZNA STRUKTURA
+ */
+div.audioContainer {
+    --container-height: 2.5em;
+    --progress-width: 15em;
+    --thumb-width: 1.2em;
+    --thumb-height: 1.2em;
+    --range-width: 16em;
+    --progress-cont-width: 16.5em;
+    --progress-thickness: 0.6em;
+    --thumb-color: black;
+    --font-size: 1.2em;
+    --icons-size: 1.5em;
+    --icon-container: 2.5em;
+}
+@media only screen and (orientation: portrait) and (max-width: 768px) {
+    div.audioContainer {
+        --progress-width: 9.5em;
+        --range-width: 11em;
+        --progress-cont-width: 11.5em;
+    }
+  }
+div.audioContainer {
+    display: inline-flex;
+    flex-direction: row;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    height: var(--container-height);
+    position: relative;
+    border-radius: 0.75em;
+    background-color: white;
+    border: 3px solid black;
+    user-select: none;
+}
+
+div.audioContainer .fontIcon {
+    font-size: var(--font-size);
+    cursor: pointer;
+    padding-bottom: 2px;
+}
+div.audioContainer img.imageIcon {
+    width: var(--icons-size);
+    height: var(--icons-size);
+}
+/*play toggle*/
+div.audioContainer .playContainer {
+    display: block;
+    height: 100%;
+    width: var(--icon-container);
+    position: relative;
+}
+div.audioContainer img[name="playToggle"]:hover {
+    cursor: pointer;
+}
+/*progress bar*/
+div.audioContainer .progressContainer {
+    display: block;
+    height: 100%;
+    position: relative;
+    padding-right: 0.3em;
+    width: var(--progress-cont-width);
+}
+
+div.progressContainer progress {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5) inset;
+    border-width: 0px;
+    border-radius: 5px;
+    height: var(--progress-thickness);
+    width: var(--progress-width);
+    overflow: hidden;
+}
+
+div.progressContainer progress::-webkit-progress-bar {
+    background-color: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+}
+/* polyfill, bc webkit doesn't support range-progress */
+div.progressContainer progress::-webkit-progress-value {
+    background-color: black;
+}
+
+
+div.progressContainer progress::-moz-progress-bar {
+    background-color: black;
+}
+
+div.progressContainer progress::-ms-fill {
+    background-color: transparent;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5) inset;
+    border-radius: 5px;
+    border-color: currentColor;
+    overflow: hidden;
+}
+
+div.progressContainer input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    touch-action: none;
+    font-size: inherit;
+    height: var(--progress-thickness);
+    width: var(--range-width);
+    background-color: transparent;
+    border-width: 0px;
+    border-radius: 5px;
+    overflow: visible;
+}
+div.progressContainer input[type="range"]:hover {
+    cursor: pointer;
+}
+div.progressContainer input[type="range"]:focus {
+    outline: none;
+}
+div.progressContainer input[type="range"]::-webkit-slider-runnable-track,
+div.progressContainer input[type="range"]::-moz-range-track,
+div.progressContainer input[type="range"]::-ms-track {
+    background-color: transparent;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+div.progressContainer input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0px;
+    height: var(--thumb-height);
+    width: var(--thumb-width);
+    border-radius: 50%;
+    background-color: var(--thumb-color);
+    transition: transform 0.2s ease;
+}
+div.progressContainer input[type="range"]::-webkit-slider-thumb:hover {
+    cursor: grab;
+}
+div.progressContainer input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.2);
+    cursor: grabbing;
+}
+div.progressContainer input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    height: var(--thumb-height);
+    width: var(--thumb-width);
+    border-radius: 50%;
+    background-color: var(--thumb-color);
+    transition: transform 0.2s ease;
+}
+div.progressContainer input[type="range"]::-moz-range-thumb:hover {
+    cursor: grab;
+}
+div.progressContainer input[type="range"]::-moz-range-thumb:active {
+    transform: scale(1.2);
+    cursor: grabbing;
+}
+div.progressContainer input[type="range"]::-ms-thumb {
+    appearance: none;
+    border: 0px;
+    height: var(--thumb-height);
+    width: var(--thumb-width);
+    border-radius: 50%;
+    background-color: var(--thumb-color);
+    transition: transform 0.2s ease;
+}
+div.progressContainer input[type="range"]::-ms-thumb:hover {
+    cursor: grab;
+}
+div.progressContainer input[type="range"]::-ms-thumb:active {
+    transform: scale(1.2);
+    cursor: grabbing;
+}
+/* time */
+div.audioContainer .timeContainer {
+    display: block;
+    height: 100%;
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/*volume*/
+
+div.audioContainer .volumeContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 12.5em;
+    width: var(--icon-container);
+    position: relative;
+    bottom: calc(10em + 3px);
+    overflow: visible;
+}
+div.audioContainer .volumeContainer .volumeToggleContainer {
+    position: relative;
+    width: var(--icon-container);
+    height: var(--container-height);
+    top: 3px;
+}
+div.audioContainer .volumeContainer.hidden .volumeToggleContainer {
+    top: 0px;
+}
+div.audioContainer .volumeContainer .volumeToggleContainer img[name="volumeToggle"] {
+    transition: opacity 0.4s ease,
+    transform 0.2s ease;
+    user-select: none;
+    touch-action: none;
+}
+div.audioContainer .volumeContainer .volumeToggleContainer:hover {
+    cursor: pointer;
+}
+div.audioContainer .volumeContainer .voulmeSliderContainer {
+    position: relative;
+    width: calc(100% - 6px);
+    height: 120px;
+    border-radius: 10px;
+    border: 3px solid black;
+    background-color: white;
+}
+
+div.audioContainer .volumeContainer.hidden {
+    bottom: 0px;
+    height: 100%;
+}
+div.audioContainer .volumeContainer.hidden .voulmeSliderContainer {
+    display: none;
+}
+
+div.audioContainer .volumeContainer .voulmeSliderContainer input[name="volumeSlider"] {
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: none;
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: black;
+    transform: rotate(270deg);
+    transition: opacity 0.4s ease;
+}
+div.audioContainer .volumeContainer .voulmeSliderContainer input[name="volumeSlider"]:hover {
+    cursor: pointer;
+}
+div.audioContainer .volumeContainer .voulmeSliderContainer input[name="volumeSlider"]:focus {
+    outline: none;
+}
+
+.voulmeSliderContainer input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: black;
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+.voulmeSliderContainer input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.2);
+    cursor: grabbing;
+}
+.voulmeSliderContainer input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    border: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: black;
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+.voulmeSliderContainer input[type="range"]::-moz-range-thumb:active {
+    transform: scale(1.2);
+    cursor: grabbing;
+}
+.voulmeSliderContainer input[type="range"]::-ms-thumb {
+    appearance: none;
+    border: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: black;
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+.voulmeSliderContainer input[type="range"]::-ms-thumb:active {
+    transform: scale(1.2);
+    cursor: grabbing;
+}
+/*positions*/
+div.audioContainer .center {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+div.audioContainer .onTop {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+div.audioContainer .playContainer [name="playToggle"].spinning {
+    animation: toggle-spin 1s ease infinite;
+}
+div.audioContainer img.imageIcon {
+    transition: transform 0.2s ease;
+}
+div.audioContainer img.imageIcon:active {
+    transform: scale(0.8);
+}
+div.audioContainer.blocked {
+    pointer-events: none;
+}
+@keyframes toggle-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
